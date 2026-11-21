@@ -1,0 +1,37 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@700&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"><title>Guía y contacto · Rincón Cozy</title>
+<meta name="description" content="Consejos para disfrutar de los juegos cozy y formulario para recomendarnos tu favorito."></head><body>
+<header class="cabecera"><div class="contenedor"><nav class="nav" aria-label="Principal">
+<a class="logo" href="index.html">Rincón<span>Cozy</span></a>
+<input type="checkbox" id="toggle-menu"><label class="burger" for="toggle-menu" aria-label="Abrir menú">☰</label>
+<ul class="menu">
+<li><a href="index.html" >Inicio</a></li>
+<li><a href="juegos.html" >Juegos</a></li>
+<li><a href="guia.html" aria-current="page">Guía y contacto</a></li>
+</ul></nav></div></header>
+<main>
+<div class="cabecera-pagina"><div class="contenedor"><h1>Guía y contacto</h1>
+<p>Consejos rápidos para disfrutar del género y un formulario para recomendarnos tus juegos.</p></div></div>
+<section class="seccion"><div class="contenedor dos-col">
+<div><h2>Consejos para jugar con calma</h2>
+<ul class="lista-suave">
+<li>Prueba la demo o lee las reseñas en Steam antes de comprar.</li>
+<li>Juega en sesiones cortas. No hace falta terminarlo todo.</li>
+<li>Usa auriculares: la música es la mitad de la experiencia.</li>
+<li>Mira la lista de deseados de Steam para esperar a las ofertas.</li>
+<li>Combina el juego con una infusión y una luz suave.</li>
+</ul></div>
+<div><h2>Recomiéndanos un juego</h2>
+<form action="#" method="post">
+<div><label for="nombre">Nombre</label><input id="nombre" name="nombre" type="text" required autocomplete="name"></div>
+<div><label for="email">Correo electrónico</label><input id="email" name="email" type="email" required autocomplete="email"></div>
+<div><label for="tipo">Tipo de juego</label>
+<select id="tipo" name="tipo"><option>Granja</option><option>Aventura</option><option>Puzle</option><option>Novela visual</option><option>Otro</option></select></div>
+<div><label for="mensaje">¿Cuál es tu favorito y por qué?</label><textarea id="mensaje" name="mensaje" required></textarea></div>
+<button class="boton" type="submit">Enviar recomendación</button>
+</form></div>
+</div></section>
+</main>
+<footer class="pie"><div class="contenedor"><p>Rincón Cozy · Web de fans, no afiliada a Valve ni a Steam. Los juegos pertenecen a sus creadores.</p></div></footer></body></html>
