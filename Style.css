@@ -99,6 +99,14 @@ p{max-width:65ch}
 .rejilla{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;margin-top:2rem}
 .tarjeta{background:var(--fondo-2);border-radius:var(--radio);overflow:hidden;display:flex;flex-direction:column}
 .tarjeta .cuerpo{padding:1.2rem 1.3rem 1.5rem}
+.tarjeta {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.tarjeta:hover {
+  transform: translateY(-6px) scale(1.03); /* Sube un poco y se amplía un 3% */
+  box-shadow: 0 10px 25px rgba(214, 69, 127, 0.15); /* Sombra suave de color */
+}
 .tarjeta p{color:var(--texto-suave);font-size:.98rem}
 .portada{
   height:140px;display:grid;place-items:center;
@@ -202,3 +210,4 @@ form textarea {
 .oculto {
   display: none !important;
 }
+
