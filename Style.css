@@ -2,7 +2,8 @@
 :root{
   --fondo:#fff1f6;           /* rosa muy claro: fondo de la web */
   --fondo-2:#ffe3ee;         /* rosa un poco más intenso: franjas, tarjetas, formulario */
-  --rosa-claro:#fde0eb;      /* rosa suave: etiquetas y cabecera */
+  --fondo-campos:#ffffff;   /* blanco: fondo de los campos del formulario */
+  --rosa-claro:#fde0eb;      /* rosa suave: y cabecera */
   --rosa:#f48fb1;            /* rosa principal */
   --rosa-fuerte:#d6457f;     /* rosa oscuro: botones y botón del menú activo */
   --rosa-oscuro:#b8336a;     /* rosa más oscuro: enlaces y títulos (se lee mejor) */
@@ -71,6 +72,28 @@ p{max-width:65ch}
 }
 .boton:hover{transform:translateY(-2px)}
 .boton.secundario{background:transparent;color:var(--texto);border:2px solid var(--texto-suave);margin-left:.5rem}
+.boton {
+  background-color: #fde0eb; /* Cambia este código por el color que quieras para el fondo */
+  color: #ffffff;            /* Color del texto (blanco) */
+  border: none;              /* Elimina el borde por defecto del navegador */
+  padding: 12px 24px;        /* Espaciado interno para que sea más grande y cómodo */
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  font-weight: 800;          /* Letra gruesa */
+  border-radius: 10px;       /* Bordes redondeados iguales a las casillas */
+  cursor: pointer;           /* Pone el cursor en forma de mano al pasar por encima */
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+/* Efecto cuando pasas el ratón por encima del botón */
+.boton:hover {
+  background-color: #f48fb1; /* Un tono un poco más oscuro o el color que prefieras */
+}
+
+/* Pequeño efecto de "hundimiento" al hacer clic */
+.boton:active {
+  transform: scale(0.98);
+}
 
 /* ===== Rejilla de tarjetas ===== */
 .rejilla{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;margin-top:2rem}
@@ -82,8 +105,14 @@ p{max-width:65ch}
   font-family:var(--fuente-titulo);font-size:3rem;color:var(--noche);font-weight:700
 }
 .etiquetas{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.9rem;list-style:none}
-.etiquetas li{background:rgba(143,201,163,.18);color:var(--musgo);padding:.15rem .7rem;border-radius:999px;font-size:.82rem;font-weight:700}
-
+.etiquetas li{
+  background:#fff1f6; /* O puedes usar otro fondo que contraste bien con texto blanco */
+  color:#4a2a3a;                 /* Color blanco para el texto */
+  padding:.15rem .7rem;
+  border-radius:999px;
+  font-size:.82rem;
+  font-weight:700;
+}
 /* ===== Bloques de contenido ===== */
 .destacado{background:var(--noche-2)}
 .dos-col{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start}
@@ -123,4 +152,40 @@ textarea{min-height:130px;resize:vertical}
 }
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+/* Estilo base de las casillas del formulario */
+form input[type="text"],
+form input[type="email"],
+form select,
+form textarea {
+  width: 100%;
+  padding: 10px 14px;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  
+  /* Personalización de colores */
+  background-color: #ffffff; /* Fondo crema cálido */
+  color: #4a3b32;            /* Color del texto que escribe el usuario */
+  border: 2px solid #fde0eb; /* Borde suave */
+  border-radius: 10px;       /* Bordes redondeados */
+  transition: all 0.2s ease;
+}
+
+/* Color cuando el usuario hace clic o escribe dentro de la casilla */
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form select:focus,
+form textarea:focus {
+  outline: none;
+  background-color: #ffffff; /* Se ilumina ligeramente al escribir */
+  border-color: #4a2a3a;     /* Borde terracota/melocotón */
+  box-shadow: 0 0 0 4px rgba(217, 119, 87, 0.15); /* Resplandor suave */
+}
+
+/* Altura mínima para el cuadro de mensaje */
+form textarea {
+  min-height: 110px;
+  resize: vertical;
 }
