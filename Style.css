@@ -189,3 +189,16 @@ form textarea {
   min-height: 110px;
   resize: vertical;
 }
+.enlace-juego {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s ease;
+}
+
+.enlace-juego:hover {
+  color: #f48fb1; /* Cambia el color al pasar el ratón */
+}
+/* Clase para ocultar elementos */
+.oculto {
+  display: none !important;
+}
