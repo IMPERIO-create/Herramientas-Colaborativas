@@ -1,20 +1,22 @@
 /* ===== Variables ===== */
 :root{
-  --fondo:#fff1f6;           /* rosa muy claro: fondo de la web */
-  --fondo-2:#ffe3ee;         /* rosa un poco más intenso: franjas, tarjetas, formulario */
-  --fondo-campos:#ffffff;   /* blanco: fondo de los campos del formulario */
-  --rosa-claro:#fde0eb;      /* rosa suave: y cabecera */
-  --rosa:#f48fb1;            /* rosa principal */
-  --rosa-fuerte:#d6457f;     /* rosa oscuro: botones y botón del menú activo */
-  --rosa-oscuro:#b8336a;     /* rosa más oscuro: enlaces y títulos (se lee mejor) */
-  --texto:#4a2a3a;           /* color del texto: ciruela oscuro */
-  --texto-suave:#7a5568;     /* texto secundario */
-  --radio:18px;              /* redondeo de tarjetas y formulario */
-  --fuente-titulo:"Fraunces",Georgia,"Times New Roman",serif;       /* tipografía de títulos */
-  --fuente-texto:"Nunito","Segoe UI",system-ui,sans-serif;          /* tipografía del texto */
+  --fondo:#fff1f6;
+  --fondo-2:#ffe3ee;
+  --fondo-campos:#ffffff;
+  --rosa-claro:#fde0eb;
+  --rosa:#f48fb1;
+  --rosa-fuerte:#d6457f;
+  --rosa-oscuro:#b8336a;
+  --texto:#4a2a3a;
+  --texto-suave:#7a5568;
+  --radio:18px;
+  --fuente-titulo:"Fraunces",Georgia,"Times New Roman",serif;
+  --fuente-texto:"Nunito","Segoe UI",system-ui,sans-serif;
 }
+
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
+
 body{
   font-family:var(--fuente-texto);
   background:var(--fondo);
@@ -22,16 +24,21 @@ body{
   line-height:1.65;
   font-size:1.05rem;
 }
+
 img,svg{max-width:100%;display:block}
-a{color:var(--lampara)}
+
+a{color:var(--rosa-oscuro)}
+
 a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,label:focus-visible{
-  outline:3px solid var(--musgo);outline-offset:3px;border-radius:6px
+  outline:3px solid var(--rosa-oscuro);outline-offset:3px;border-radius:6px
 }
+
 h1,h2,h3{font-family:var(--fuente-titulo);line-height:1.15;font-weight:700}
 h1{font-size:clamp(2.2rem,6vw,4rem)}
 h2{font-size:clamp(1.6rem,4vw,2.3rem);margin-bottom:.8rem}
 h3{font-size:1.3rem;margin-bottom:.4rem}
 p{max-width:65ch}
+
 .contenedor{width:min(1100px,92%);margin-inline:auto}
 .seccion{padding:4rem 0}
 
@@ -39,11 +46,11 @@ p{max-width:65ch}
 .cabecera{background:var(--fondo-2);position:sticky;top:0;z-index:10}
 .nav{display:flex;align-items:center;justify-content:space-between;padding:.9rem 0}
 .logo{font-family:var(--fuente-titulo);font-size:1.4rem;font-weight:700;color:var(--texto);text-decoration:none}
-.logo span{color:var(--lampara)}
+.logo span{color:var(--rosa-fuerte)}
 .menu{display:flex;gap:.4rem;list-style:none}
 .menu a{display:block;padding:.45rem 1rem;border-radius:999px;text-decoration:none;color:var(--texto)}
-.menu a:hover{background:rgba(255,255,255,.1)}
-.menu a[aria-current="page"]{background:var(--lampara);color:var(--noche);font-weight:700}
+.menu a:hover{background:rgba(255,255,255,.2)}
+.menu a[aria-current="page"]{background:var(--rosa-fuerte);color:#ffffff;font-weight:700}
 #toggle-menu{display:none}
 .burger{display:none;cursor:pointer;font-size:1.6rem;padding:.2rem .6rem}
 
@@ -54,75 +61,136 @@ p{max-width:65ch}
 .ventana{
   aspect-ratio:1;border-radius:200px 200px 24px 24px;
   background:radial-gradient(circle at 50% 70%,#ffd98a 0,#f7a85c 35%,#7a4d6e 75%);
-  border:10px solid var(--noche-2);
+  border:10px solid var(--fondo-2);
   box-shadow:0 0 90px rgba(255,207,110,.35);
   position:relative;max-width:340px;justify-self:center;width:100%;
   animation:brillo 4s ease-in-out infinite alternate;
 }
-.ventana::before,.ventana::after{content:"";position:absolute;background:var(--noche-2)}
+.ventana::before,.ventana::after{content:"";position:absolute;background:var(--fondo-2)}
 .ventana::before{left:50%;top:0;bottom:0;width:10px;transform:translateX(-50%)}
 .ventana::after{top:55%;left:0;right:0;height:10px}
 @keyframes brillo{from{box-shadow:0 0 50px rgba(255,207,110,.2)}to{box-shadow:0 0 110px rgba(255,207,110,.5)}}
 
 /* ===== Botones ===== */
 .boton{
-  display:inline-block;background:var(--lampara);color:var(--noche);
-  padding:.8rem 1.6rem;border-radius:999px;font-weight:800;text-decoration:none;
-  border:0;cursor:pointer;font:inherit;font-weight:800;transition:transform .15s
-}
-.boton:hover{transform:translateY(-2px)}
-.boton.secundario{background:transparent;color:var(--texto);border:2px solid var(--texto-suave);margin-left:.5rem}
-.boton {
-  background-color: #fde0eb; /* Cambia este código por el color que quieras para el fondo */
-  color: #ffffff;            /* Color del texto (blanco) */
-  border: none;              /* Elimina el borde por defecto del navegador */
-  padding: 12px 24px;        /* Espaciado interno para que sea más grande y cómodo */
-  font-family: 'Nunito', sans-serif;
+  display:inline-block;
+  background-color: var(--rosa-claro);
+  color: var(--texto);
+  border: none;
+  padding: 12px 24px;
+  font-family: var(--fuente-texto);
   font-size: 1rem;
-  font-weight: 800;          /* Letra gruesa */
-  border-radius: 10px;       /* Bordes redondeados iguales a las casillas */
-  cursor: pointer;           /* Pone el cursor en forma de mano al pasar por encima */
+  font-weight: 800;
+  border-radius: 10px;
+  cursor: pointer;
+  text-decoration: none;
   transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
-/* Efecto cuando pasas el ratón por encima del botón */
-.boton:hover {
-  background-color: #f48fb1; /* Un tono un poco más oscuro o el color que prefieras */
+.boton:hover{
+  background-color: var(--rosa);
+  transform: translateY(-2px);
 }
 
-/* Pequeño efecto de "hundimiento" al hacer clic */
-.boton:active {
+.boton:active{
   transform: scale(0.98);
 }
 
-/* ===== Rejilla de tarjetas ===== */
-.rejilla{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;margin-top:2rem}
-.tarjeta{background:var(--fondo-2);border-radius:var(--radio);overflow:hidden;display:flex;flex-direction:column}
-.tarjeta .cuerpo{padding:1.2rem 1.3rem 1.5rem}
-.tarjeta {
+.boton.secundario{
+  background: transparent;
+  color: var(--texto);
+  border: 2px solid var(--texto-suave);
+  margin-left:.5rem;
+}
+
+.boton.secundario:hover {
+  background: var(--fondo-2);
+}
+
+/* ===== Rejilla de tarjetas y alineación uniforme ===== */
+.rejilla{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:1.5rem;
+  margin-top:2rem;
+  align-items: stretch;
+}
+
+.tarjeta{
+  background: var(--fondo-2);
+  border-radius: var(--radio);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.tarjeta:hover {
-  transform: translateY(-6px) scale(1.03); /* Sube un poco y se amplía un 3% */
-  box-shadow: 0 10px 25px rgba(214, 69, 127, 0.15); /* Sombra suave de color */
+.tarjeta:hover{
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(214, 69, 127, 0.15);
 }
-.tarjeta p{color:var(--texto-suave);font-size:.98rem}
-.portada{
-  height:140px;display:grid;place-items:center;
-  font-family:var(--fuente-titulo);font-size:3rem;color:var(--noche);font-weight:700
+
+.tarjeta .cuerpo{
+  padding: 1.2rem 1.3rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
-.etiquetas{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.9rem;list-style:none}
+
+.tarjeta p{
+  color: var(--texto-suave);
+  font-size: .98rem;
+}
+
+.tarjeta img {
+  width: 100%;
+  height: 130px;       /* Fuerza exactamente la misma altura en todas */
+  object-fit: cover;   /* Recorta los bordes sin aplastar ni deformar la foto */
+  display: block;
+}
+
+/* Portada de imagen uniforme */
+.portada-imagen{
+  height: 160px;
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--fondo);
+}
+
+.portada-imagen img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.tarjeta:hover .portada-imagen img{
+  transform: scale(1.05);
+}
+
+/* Etiquetas alineadas abajo */
+.etiquetas{
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+  margin-top: auto;
+  list-style: none;
+  padding-top: 1rem;
+}
+
 .etiquetas li{
-  background:#fff1f6; /* O puedes usar otro fondo que contraste bien con texto blanco */
-  color:#4a2a3a;                 /* Color blanco para el texto */
-  padding:.15rem .7rem;
-  border-radius:999px;
-  font-size:.82rem;
-  font-weight:700;
+  background: #fff1f6;
+  color: #4a2a3a;
+  padding: .15rem .7rem;
+  border-radius: 999px;
+  font-size: .82rem;
+  font-weight: 700;
 }
+
 /* ===== Bloques de contenido ===== */
-.destacado{background:var(--noche-2)}
+.destacado{background: var(--fondo-2)}
 .dos-col{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start}
 .lista-suave{list-style:none;display:grid;gap:1rem;margin-top:1rem}
 .lista-suave li{padding-left:1.8rem;position:relative;color:var(--texto-suave)}
@@ -130,38 +198,26 @@ p{max-width:65ch}
 .cabecera-pagina{padding:3.5rem 0 1rem}
 .cabecera-pagina p{color:var(--texto-suave);margin-top:.8rem}
 
-/* ===== Formulario ===== */
-form{display:grid;gap:1rem;background:var(--noche-2);padding:1.8rem;border-radius:var(--radio)}
+.enlace-juego {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s ease;
+}
+.enlace-juego:hover {
+  color: var(--rosa-fuerte);
+}
+
+/* ===== Formulario y Campos ===== */
+form{
+  display:grid;
+  gap:1rem;
+  background:var(--fondo-2);
+  padding:1.8rem;
+  border-radius:var(--radio);
+}
+
 label{font-weight:700;display:block;margin-bottom:.3rem}
-input,textarea,select{
-  width:100%;padding:.75rem 1rem;border-radius:12px;border:2px solid transparent;
-  background:var(--noche);color:var(--texto);font:inherit
-}
-input:focus,textarea:focus,select:focus{border-color:var(--lampara)}
-textarea{min-height:130px;resize:vertical}
 
-/* ===== Pie ===== */
-.pie{background:var(--noche-2);padding:2rem 0;margin-top:3rem;text-align:center;color:var(--texto-suave);font-size:.95rem}
-.pie p{margin-inline:auto}
-
-/* ===== Responsive ===== */
-@media (max-width:800px){
-  .hero .contenedor,.dos-col{grid-template-columns:1fr}
-  .ventana{max-width:240px;order:-1}
-  .burger{display:block}
-  .menu{
-    display:none;position:absolute;top:100%;left:0;right:0;
-    flex-direction:column;background:var(--noche-2);padding:.5rem 4%
-  }
-  #toggle-menu:checked ~ .menu{display:flex}
-  .nav{position:relative;flex-wrap:wrap}
-  .boton.secundario{margin:.6rem 0 0}
-  .seccion{padding:2.8rem 0}
-}
-@media (prefers-reduced-motion:reduce){
-  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
-}
-/* Estilo base de las casillas del formulario */
 form input[type="text"],
 form input[type="email"],
 form select,
@@ -170,44 +226,54 @@ form textarea {
   padding: 10px 14px;
   margin-top: 6px;
   margin-bottom: 16px;
-  font-family: 'Nunito', sans-serif;
+  font-family: var(--fuente-texto);
   font-size: 1rem;
-  
-  /* Personalización de colores */
-  background-color: #ffffff; /* Fondo crema cálido */
-  color: #4a3b32;            /* Color del texto que escribe el usuario */
-  border: 2px solid #fde0eb; /* Borde suave */
-  border-radius: 10px;       /* Bordes redondeados */
+  background-color: #ffffff;
+  color: var(--texto);
+  border: 2px solid var(--rosa-claro);
+  border-radius: 10px;
   transition: all 0.2s ease;
 }
 
-/* Color cuando el usuario hace clic o escribe dentro de la casilla */
 form input[type="text"]:focus,
 form input[type="email"]:focus,
 form select:focus,
 form textarea:focus {
   outline: none;
-  background-color: #ffffff; /* Se ilumina ligeramente al escribir */
-  border-color: #4a2a3a;     /* Borde terracota/melocotón */
-  box-shadow: 0 0 0 4px rgba(217, 119, 87, 0.15); /* Resplandor suave */
+  background-color: #ffffff;
+  border-color: var(--rosa-oscuro);
+  box-shadow: 0 0 0 4px rgba(217, 119, 87, 0.15);
 }
 
-/* Altura mínima para el cuadro de mensaje */
 form textarea {
   min-height: 110px;
   resize: vertical;
 }
-.enlace-juego {
-  text-decoration: none;
-  color: inherit;
-  transition: color 0.2s ease;
-}
 
-.enlace-juego:hover {
-  color: #f48fb1; /* Cambia el color al pasar el ratón */
-}
-/* Clase para ocultar elementos */
+/* ===== Pie ===== */
+.pie{background:var(--fondo-2);padding:2rem 0;margin-top:3rem;text-align:center;color:var(--texto-suave);font-size:.95rem}
+.pie p{margin-inline:auto}
+
+/* ===== Utilidades ===== */
 .oculto {
   display: none !important;
 }
 
+/* ===== Responsive ===== */
+@media (max-width:800px){
+  .hero .contenedor,.dos-col{grid-template-columns:1fr}
+  .ventana{max-width:240px;order:-1}
+  .burger{display:block}
+  .menu{
+    display:none;position:absolute;top:100%;left:0;right:0;
+    flex-direction:column;background:var(--fondo-2);padding:.5rem 4%
+  }
+  #toggle-menu:checked ~ .menu{display:flex}
+  .nav{position:relative;flex-wrap:wrap}
+  .boton.secundario{margin:.6rem 0 0}
+  .seccion{padding:2.8rem 0}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
