@@ -43,6 +43,19 @@
   </div>
 </div>
 </div>
+<script>
+  const formulario = document.getElementById('form-recomendacion');
+  const contenedorFormulario = document.getElementById('contenedor-formulario');
+  const mensajeAgradecimiento = document.getElementById('mensaje-agradecimiento');
+
+  formulario.addEventListener('submit', function(e) {
+    e.preventDefault(); // Evita que la página se recargue
+
+    // Oculta el formulario y muestra el mensaje de agradecimiento
+    contenedorFormulario.classList.add('oculto');
+    mensajeAgradecimiento.classList.remove('oculto');
+  });
+</script>
 </div></section>
 </main>
 <footer class="pie"><div class="contenedor"><p>Rincón Cozy · Web de fans, no afiliada a Valve ni a Steam. Los juegos pertenecen a sus creadores.</p></div></footer></body></html>
