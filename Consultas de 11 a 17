@@ -1,0 +1,53 @@
+/*Consulta 11: Juegos de la saga Final Fantasy*/
+
+SELECT *
+FROM dbo.juegos
+WHERE Nombre LIKE '%Final Fantasy%';
+
+/*Consulta 12: Juegos de deportes con más de 3 desarrolladores*/
+
+SELECT *
+FROM dbo.juegos
+WHERE Genre LIKE '%Sports%'
+  AND DeveloperCount > 3;
+
+/*Consulta 13: ¿Cuántos juegos hay asociados a cada categoría?*/
+
+SELECT Category, COUNT(*) AS TotalJuegos
+FROM dbo.juegos
+GROUP BY Category;
+
+/*Consulta 14: ¿Cuántos juegos se han publicado en cada año?*/
+
+SELECT ReleaseDate, COUNT(*) AS TotalJuegos
+FROM dbo.juegos
+WHERE TRY_CONVERT(INT, ReleaseDate) IS NOT NULL
+GROUP BY ReleaseDate
+ORDER BY TRY_CONVERT(INT, ReleaseDate);
+
+/*Consulta 15: Años en los que la media de puntuación esté entre 6 y 8*/ 
+
+SELECT ReleaseDate,
+       AVG(CAST(Metacritic AS FLOAT)) AS MediaPuntuacion
+FROM dbo.juegos
+WHERE TRY_CONVERT(INT, ReleaseDate) IS NOT NULL
+  AND Metacritic IS NOT NULL
+GROUP BY ReleaseDate
+HAVING AVG(CAST(Metacritic AS FLOAT)) BETWEEN 60 AND 80;
+
+/*Consulta 16: Puntuación máxima, mínima y media por género*/
+
+SELECT Genre,
+       MAX(Metacritic) AS PuntuacionMaxima,
+       MIN(Metacritic) AS PuntuacionMinima,
+       AVG(CAST(Metacritic AS FLOAT)) AS PuntuacionMedia
+FROM dbo.juegos
+WHERE Metacritic IS NOT NULL
+GROUP BY Genre;
+
+/*Consulta 17: Top 10 juegos con mayor puntuación del 2012*/
+
+SELECT TOP (10) *
+FROM dbo.juegos
+WHERE ReleaseDate = '2012'
+ORDER BY Metacritic DESC;
