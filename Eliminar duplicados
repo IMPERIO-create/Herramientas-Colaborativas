@@ -1,0 +1,44 @@
+BEGIN TRANSACTION;
+
+WITH Duplicados AS (
+    SELECT *,
+           ROW_NUMBER() OVER (
+               PARTITION BY
+                   Nombre,
+                   ReleaseDate,
+                   RequiredAge,
+                   DemoCount,
+                   DeveloperCount,
+                   DLCCount,
+                   Metacritic,
+                   PublisherCount,
+                   AchievementCount,
+                   ControllerSupport,
+                   IsFree,
+                   FreeVerAvail,
+                   PlatformWindows,
+                   PlatformLinux,
+                   PlatformMac,
+                   Genre,
+                   PriceCurrency,
+                   PriceInitial,
+                   PriceFinal,
+                   ShortDescrip,
+                   HeaderImage,
+                   SupportedLanguages,
+                   Category,
+                   Website
+               ORDER BY (SELECT NULL)
+           ) AS fila
+    FROM dbo.juegos
+)
+DELETE FROM Duplicados
+WHERE fila > 1;
+
+-- Comprueba cuántos registros quedan
+SELECT COUNT(*) AS TotalJuegos
+FROM dbo.juegos;
+
+--------------
+
+COMMIT TRANSACTION;
