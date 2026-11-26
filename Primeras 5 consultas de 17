@@ -1,0 +1,31 @@
+/*Consulta 1: Listar todas las columnas de la tabla*/
+
+SELECT *
+FROM dbo.juegos;
+
+/*Consulta 2: Listar todos los géneros diferentes, eliminando duplicados*/
+
+SELECT DISTINCT Genre
+FROM dbo.juegos;
+
+/*Consulta 3: Listar los juegos que únicamente se puedan jugar en Linux*/
+
+SELECT *
+FROM dbo.juegos
+WHERE PlatformLinux = 'True'
+  AND PlatformWindows = 'False'
+  AND PlatformMac = 'False';
+
+  /*Consulta 4: Listar todos los juegos de rol, ordenados por nota*/
+
+  SELECT *
+FROM dbo.juegos
+WHERE Genre LIKE '%RPG%'
+ORDER BY Metacritic DESC;
+
+ /*Consulta 5: Listar los juegos que puedan jugarse en español, pero no en francés*/
+
+ SELECT *
+FROM dbo.juegos
+WHERE SupportedLanguages LIKE '%Spanish%'
+  AND SupportedLanguages NOT LIKE '%French%';
